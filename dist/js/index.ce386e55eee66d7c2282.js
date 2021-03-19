@@ -1,0 +1,1 @@
+(()=>{let e=document.createElement("div");e.innerHTML="page index",document.body.appendChild(e)})();
