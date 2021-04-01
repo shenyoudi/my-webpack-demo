@@ -1,5 +1,10 @@
+import '@assets/css/common.scss'
 import './index.scss'
-import loading from '../../assets/image/loading.gif'
+import loading from '@assets/image/loading.gif'
+import Router from '@/routers/index'
+
+let nav = document.getElementsByTagName('nav')[0]
+nav.appendChild(Router)
 //const loading = require('./loading.gif')
 //const jpg1 = require('./1.jpg')
 
