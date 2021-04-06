@@ -1,4 +1,4 @@
-const router = ['index', 'flex', 'fileloader']
+const router = ['index', 'flex', 'fileloader', 'css']
 
 function createRouter () {
 	const ul = document.createElement('ul')

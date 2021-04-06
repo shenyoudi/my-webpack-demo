@@ -1,0 +1,2 @@
+.flex{width:500px;height:200px;background:lightgray;border:1px solid #aaa;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;text-align:center;margin:50px 0 100px 0}.a{width:100px;height:150px;background:deeppink}.a.shrink{width:300px}.b{width:150px;height:150px;background:lightgreen}.c{width:100px;height:150px;background:deepskyblue}.c.shrink{width:200px}
+

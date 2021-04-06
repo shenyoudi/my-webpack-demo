@@ -1,16 +1,24 @@
 const path = require('path')
+const fs = require('fs')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 // 复制文件
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 // 提取css
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+const entry = {}
+fs.readdirSync(path.resolve(__dirname, 'pages')).map(page => {
+  entry[page] = `./pages/${page}/index.js`
+})
+
+
 module.exports = {
-  entry: {
+  /* entry: {
     index: './pages/index/index.js',
     fileloader: './pages/fileloader/index.js',
     flex: './pages/flex/index.js'
-  },
+  }, */
+  entry,
   output: {
     filename: 'js/[name].[chunkhash].js',
     path: path.resolve(__dirname, 'dist'),
@@ -24,7 +32,8 @@ module.exports = {
         use: [
           //'style-loader', 
           MiniCssExtractPlugin.loader,
-          'css-loader', 
+          'css-loader',
+          'postcss-loader',
           'sass-loader'
         ]
       },
@@ -53,7 +62,7 @@ module.exports = {
       filename: 'index.html',
       title: 'home',
       chunks: ['index'],
-      exclude: ['fileloader', 'flex']
+      exclude: ['fileloader', 'flex', 'css']
     }),
     new HtmlWebpackPlugin({
       template: './pages/fileloader/index.html',
@@ -66,6 +75,12 @@ module.exports = {
       filename: 'flex.html',
       title: 'flex',
       chunks: ['flex']
+    }),
+    new HtmlWebpackPlugin({
+      template: './pages/css/index.html',
+      filename: 'css.html',
+      title: 'css',
+      chunks: ['css']
     }),
     new CopyWebpackPlugin({
       patterns: [

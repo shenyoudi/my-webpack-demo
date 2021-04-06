@@ -1,0 +1,21 @@
+.test {
+	height: 200px;
+	width: 200px;
+	display: flex;
+	border: 1px solid #aaa;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+}
+
+.title-overflow{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.text-overflow {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
